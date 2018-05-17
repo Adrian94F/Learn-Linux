@@ -128,7 +128,7 @@ body.terminal {
 }
 .terminal .terminal-output div div, .cmd .prompt {
     display: block;
-    line-height: 14px;
+    line-height: 16px;
     height: auto;
 }
 .terminal .terminal-output > div:not(.raw) div {
@@ -142,8 +142,8 @@ body.terminal {
     /*font-family: FreeMono, monospace; this don't work on Android */
     color: #aaa;
     background-color: #000;
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 14px;
+    line-height: 16px;
     box-sizing: border-box;
     cursor: text;
 }
@@ -154,7 +154,7 @@ body.terminal {
     clear: right;
 }
 .terminal-output > div > div {
-    min-height: 14px;
+    min-height: 16px;
 }
 terminal .terminal-output > div {
     margin-top: -1px;
@@ -466,11 +466,11 @@ terminal .terminal-output > div {
         display: inline-block;
     }
     .terminal, .cmd, .terminal .terminal-output > div > div, .cmd .prompt {
-        font-size: calc(var(--size, 1) * 12px);
-        line-height: calc(var(--size, 1) * 14px);
+        font-size: calc(var(--size, 1) * 14px);
+        line-height: calc(var(--size, 1) * 16px);
     }
     .terminal .terminal-output > div > div {
-        min-height: calc(var(--size, 1) * 14px);
+        min-height: calc(var(--size, 1) * 16px);
     }
     .terminal .inverted, .cmd .inverted {
         background-color: var(--color, #aaa);

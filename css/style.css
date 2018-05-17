@@ -1,11 +1,12 @@
 :root {
-    --side-panel-width: 230px; 
+    --side-panel-width: 290px; 
     --footer-height: 20px;
     --panel-height: calc(100vh - 40px - var(--footer-height));
 }
 
 body {
 	background-color: #000;
+    font-size: 1rem;
 }
 
 .fullh-panel {
@@ -57,13 +58,13 @@ h1 {
 
 p {
 	color: #adb0b2;
-	font-size: .8rem;
+	font-size: 1rem;
 	margin-bottom: 10px;
 }
 
 a {
 	color: #adb0b2;
-	font-size: .8rem;
+	font-size: 1rem;
 }
 
 a:hover {
@@ -119,6 +120,7 @@ li {
     --background: #000;
     --color: #0c0;
     text-shadow: 0 0 3px rgba(0,100,0,50);
+    font-size: 1.2rem;
 }
 .cmd .cursor.blink {
     -webkit-animation: 1s blink infinite;
