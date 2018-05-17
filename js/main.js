@@ -24,7 +24,9 @@ var lessons = [
 	["Przenoszenie katalogów i plików", "Opis działania mv..."],
 	["Usuwanie katalogów i plików", "Opis działania rm..."],
 	["Test 2", 'Test sprawdzający umiejętności\n--------\n' +
-		'cp, mv i rm']
+		'Aby sprawdzić uzyskane umiejętności, spróbuj wykonać następujące zadania.\n' +
+		'...cp, mv i rm...'+
+		'--------\nPo wykonaniu ich wpisz polecenie check, żeby wyświetlić wynik. Powodzenia!\n--------'],
 ];
 var testIdx = [5, 9]; // numery lekcji, które są testami
 
