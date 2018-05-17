@@ -147,7 +147,7 @@ jQuery(document).ready(function($) {
 			emulator.run(command).then(log, error);
 		}
 	}, {
-		greetings: 'Witaj w Learn Linux! Wybierz interesującą Cię lekcję z panelu po prawej, wpisz help lub credits.'
+		greetings: 'Witaj w Learn Linux! Wybierz interesującą Cię lekcję z panelu po lewej, wpisz help lub credits.'
 	});
 });
 
