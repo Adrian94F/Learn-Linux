@@ -8,11 +8,50 @@ var help = [
 	"Copyright © 2018 Adrian Frydmański, Krzysztof Cabała. Wszelkie i niewszelkie prawa zastrzeżone.\nWykorzystano następujące projekty:\n* JQuery Terminal - https://terminal.jcubic.pl\n* Bash-Emulator - https://trybash.github.io/bash-emulator/"
 ]
 var lessons = [
-	["Wstęp do terminala", "Jakiś wstęp..."],
-	["Przeszukiwanie katalogów", "Opis drzewa katalogów, opis działania cd..."],
-	["Tworzenie katalogów", "Opis działania mkdir..."],
-	["Wyświetlanie plików", "Opis działania cat..."],
-	["Tworzenie plików", "Opis działania touch..."],
+	["Wprowadzenie", "\"Czym jest terminal? Dlaczego warto się go uczyć? Nie mogę sobie wysztkiego wyklikać?\"\n" + 
+		"Jeśli zadajesz sobie te pytania, to wiedz, że coś się dzieje, i dziękuj losowi że trafiłes na tę stronę.\n" + 
+		"Terminal to \"komunikator\" na linii system operacyjny - użytkownik. \n" + 
+		"Piszesz do niego co ma zrobić, a on to robi, chyba że nie umie.\n" + 
+		"Zupełnie jak twoja dziewczyna."],
+	["Przeszukiwanie katalogów", "Znając podstawy obsługi komputera wiesz pewnie, że pliki zapisane są w różnych katalogach.\n" + 
+		"Terminal pozwala na poruszanie się wewnątrz katalogów, przechodzenie do podkatalogów i katalogów nadrzędnych.\n" + 
+		"Głównym katalogiem jest \"\\\". Pod nim znajdują się wszystkie inne.\n" + 
+		"Polecenia, które mogą Ci się przydać, to:\n" + 
+		" - cd - pozwala na przechodzenie do innych katalogów.\n" + 
+		"        Wpisanie \"cd katalog\" pozwala na przejście do podkatalogu \"katalog\"\n" + 
+		"        \"cd ..\" przechodzi o jedne katalog w górę.\n" + 
+		"        Możliwe jest przechodzenie o więcej, niż jeden katalog. Wystarczy rozdzielić je ukośnikiem:\n" + 
+		"        \"cd katalog/podkatalog/podkatalog\".\n" + 
+		"        Można również podać ścieżkę bezwzględną do określonego katalogu, np \"cd /home\".\n" + 
+		"        Samo \"cd\" powoduje przejście do katalogu domowego użytkownika (tutaj \"/home/user\").\n" + 
+		" - ls - wyświetla zawartość danego katalogu\n" + 
+		"        Dostępne są też parametry, które po wpisaniu po \"ls\" powodują określone działanie:\n" + 
+		"        -l - wypisanie plików z ich właściwościami (typem, datą utworzenia, nazwą, uprawnieniami).\n" + 
+		"             Tutaj, z uwagi na uproszczony system plików, nieobsługiwane są uprawnienia użytkowników.\n" + 
+		"        -a - wyświetlenie plików ukrytych. Plik jest ukryty, kiedy na początku nazwy zawiera kropkę (np. \".plik\").\n" + 
+		" - pwd - wyświetla aktualną ścieżkę - lokalizację, w której się znajdujesz.\n--------\n" + 
+		"Wypróbuj poznane polecenia, wyświetlając zawartość katalogu głównego i przechodząc do katalogów się w nim znajdujących."],
+	["Tworzenie katalogów", "Opis działania mkdir\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"..."],
+	["Wyświetlanie plików", "Opis działania cat\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"..."],
+	["Tworzenie plików", "Opis działania touch\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"..."],
 	["Test 1", 'Test sprawdzający umiejętności\n--------\n' +
 		'Aby sprawdzić uzyskane umiejętności, spróbuj wykonać następujące zadania.\n' +
 		' - usunąć plik journal.txt z katalogu /home/user\n' +
@@ -20,15 +59,33 @@ var lessons = [
 		' - zmienić nazwę README.txt na my-readme.txt\n' +
 		' - wyświetlić zawartość  my-readme.txt\n' +
 		'--------\nPo wykonaniu ich wpisz polecenie check, żeby wyświetlić wynik. Powodzenia!\n--------'],
-	["Kopiowanie katalogów i plików", "Opis działania cp..."],
-	["Przenoszenie katalogów i plików", "Opis działania mv..."],
-	["Usuwanie katalogów i plików", "Opis działania rm..."],
+	["Kopiowanie katalogów i plików", "Opis działania cp\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"..."],
+	["Przenoszenie katalogów i plików", "Opis działania mv\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"..."],
+	["Usuwanie katalogów i plików", "Opis działania rm\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"...\n" + 
+		"..."],
 	["Test 2", 'Test sprawdzający umiejętności\n--------\n' +
 		'Aby sprawdzić uzyskane umiejętności, spróbuj wykonać następujące zadania.\n' +
 		'...cp, mv i rm...'+
 		'--------\nPo wykonaniu ich wpisz polecenie check, żeby wyświetlić wynik. Powodzenia!\n--------'],
 ];
 var testIdx = [5, 9]; // numery lekcji, które są testami
+var d = 5;
 
 /*
  * "typed" printing (emulating user typing)
@@ -74,7 +131,7 @@ var typed_message = typed(function(term, message, prompt) {
 	term.set_prompt(prompt);
 });
 function fastOut(string) {
-	typed_message(term, string, 50);
+	typed_message(term, string, d);
 }
 
 /*
