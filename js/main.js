@@ -19,7 +19,7 @@ var lessons = [
 		"Polecenia, które mogą Ci się przydać, to:\n" + 
 		" - cd - pozwala na przechodzenie do innych katalogów.\n" + 
 		"        Wpisanie \"cd katalog\" pozwala na przejście do podkatalogu \"katalog\"\n" + 
-		"        \"cd ..\" przechodzi o jedne katalog w górę.\n" + 
+		"        \"cd ..\" przechodzi o jeden katalog w górę.\n" + 
 		"        Możliwe jest przechodzenie o więcej, niż jeden katalog. Wystarczy rozdzielić je ukośnikiem:\n" + 
 		"        \"cd katalog/podkatalog/podkatalog\".\n" + 
 		"        Można również podać ścieżkę bezwzględną do określonego katalogu, np \"cd /home\".\n" + 
@@ -31,27 +31,36 @@ var lessons = [
 		"        -a - wyświetlenie plików ukrytych. Plik jest ukryty, kiedy na początku nazwy zawiera kropkę (np. \".plik\").\n" + 
 		" - pwd - wyświetla aktualną ścieżkę - lokalizację, w której się znajdujesz.\n--------\n" + 
 		"Wypróbuj poznane polecenia, wyświetlając zawartość katalogu głównego i przechodząc do katalogów się w nim znajdujących."],
+    ["Ścieżki", "Opis struktury systemu plików\n" + 
+		"W systemie Linux katalogi i pliki usystematyzowane są w sposób hierarchinczy. Od \"korzenia\" czyli katalogu / po ostatni, najbardziej ukryty, najgłebiej schowany plik\n" + 
+		"Struktura typowego systemu plików zawiera katalogi:\n" + "/\n" +"├── bin\n" +"├── boot\n" +"├── cdrom\n" +"├── dev\n" +"├── etc\n" +"├── home\n" +"├── initrd.img\n" +"├── lib\n" +"├── lib64\n" +"├── lost+found\n" +"├── media\n" +"├── mnt\n" +"├── opt\n" +"├── proc\n" +"├── root\n" +"├── run\n" +"├── sbin\n" +"├── srv\n" +"├── sys\n" +"├── tmp\n" +"├── usr\n" +"├── var\n" +"└── vmlinuz \n" + "\n" +
+		"Większość z nich to katalogi systemowe, które na tym etapie są dla ciebie jak czarna magia, są, ale wolisz nie wiedzieć po co i dlaczego, i wiesz, że lepiej ich nie ruszać. Na tę chwilę interesują cię katalog /home czyli katalog w którym swoje miejsca pracy mają użytkownicy. Pozostałe są w naszym kursie ukryte. \n" +
+		"W Linuxie możesz adresować na dwa sposoby:\n" + 
+		"Sposób relatywny: wpisujesz miejsce którego szukasz, od miejsca w którym się znajdujesz.\n" +
+		"Czyli, będąc w katalogu /home/user jeśli chcesz pracować z plikiem plik1 używasz jego nazwy\n" + 
+		"Jeśli znajduje się on w podkatalogu, to piszesz: podkatalog/plik. Oczywiście, poziomów może być mnóstwo\n"+
+		"W systemie istnieją \"specjalne ścieżki\", . i .. . . Oznacza bieżący katalog w którym się znajdujesz. .. Oznaczają katalog o poziom wyżej, czyli jeśli jesteś w /home/user, to . oznacza /home/user, a .. oznacza /home. Proste? Mam nadzieję\n" + 
+		"Drugi sposób adresacji to ścieżki bezwzględne, nie ważne w którym miejscu systemu plików w tym momencie, zawsze oznaczają dokładnie to samo miejsce. Ich zapis zaczyna się od / - tak, dobrze pamiętasz, to symbol root, czyli korzenia systemu plików. Jak już pewnie się domyślasz, ściezki budujesz po kolei, podążając za hierarchią, np: /home/user/katalog/plik"],
 	["Tworzenie katalogów", "Opis działania mkdir\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"..."],
+		"Polecenie mkdir służy do tworzenia katalogów. \n" +
+        "Jego podstawowa składnia to: mkdir nazwa_katalogu \n" +
+        "Zamiast nazwy, możesz podać ścieżkę, np katalog/katalog2/katalog3\n" +
+        "Spróbuj stworzyć katalog /home/usuer/katalog1\n" + 
+		"Następnie utwórz katalog /home/user/katalog2/katalog2.1\n" + 
+		"Pewnie Ci się nie udało - nie mart się początki bywają trudne.\n" + 
+		"Aby utworzyć katalog musisz być pewny, że wszystkie kalogi powyżej istnieją, czyli musisz stworzyć po kolei katalog2, później dopiero katalog katalog2.1\n" + 
+		"Mam nadzieję, że tym razem Ci się uda!\n"],
 	["Wyświetlanie plików", "Opis działania cat\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"..."],
+		"Polecenie cat, od angielskiego conCATenate służy zasadniczo do łączenia, ale najczęście używa się go do wyświetlania zawartości plków.\n" + 
+		"Składnia wygląda następująco:" + 
+		"cat plik1 plik2 plik3\n" + 
+		"Plików może być dowolna liczba, ich zawartość zostanie domyślnie wyświetlna na standardowym wyjściu czyli w konsoli." + 
+		"Sprawdź, co zawiera w sobie plik journal.txt z katalogu domowego użytknownia user\n" 
+		],
 	["Tworzenie plików", "Opis działania touch\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"..."],
+		"Następnym poleceniem jakie poznasz jest polecenie touch. Służy ono do \"dotykania\" pliku. W prawdziwym systemie modifikuje ono datę modyfikacji pliku, a jeśli taki plik nie istnieje tworzy nowy o takiej nazwie. Spróbuj utworzyć plik plik1.txt w miejscu w którym się znajdujesz. Potem sprawdź czy plik się utworzył za pomocą ls. Następnie utwórz plik /home/user/katalog69/plik96 i również zweryfikuj jego istnienie za pomocą ls" + 
+		"\n"
+		],
 	["Test 1", 'Test sprawdzający umiejętności\n--------\n' +
 		'Aby sprawdzić uzyskane umiejętności, spróbuj wykonać następujące zadania.\n' +
 		' - usunąć plik journal.txt z katalogu /home/user\n' +
@@ -84,7 +93,7 @@ var lessons = [
 		'...cp, mv i rm...'+
 		'--------\nPo wykonaniu ich wpisz polecenie check, żeby wyświetlić wynik. Powodzenia!\n--------'],
 ];
-var testIdx = [5, 9]; // numery lekcji, które są testami
+var testIdx = [6, 10]; // numery lekcji, które są testami
 var d = 5;
 
 /*
@@ -204,7 +213,9 @@ jQuery(document).ready(function($) {
 			emulator.run(command).then(log, error);
 		}
 	}, {
-		greetings: 'Witaj w Learn Linux! Wybierz interesującą Cię lekcję z panelu po lewej, wpisz help lub credits.'
+		greetings: 
+"                 .88888888:.\n                88888888.88888.\n              .8888888888888888.\n              888888888888888888\n              88' _`88'_  `88888\n              88 88 88 88  88888\n              88_88_::_88_:88888\n              88:::,::,:::::8888\n              88`:::::::::'`8888\n             .88  `::::'    8:88.\n            8888            `8:888.\n          .8888'             `888888.\n         .8888:..  .::.  ...:'8888888:.\n        .8888.'     :'     `'::`88:88888\n       .8888        '         `.888:8888.\n      888:8         .           888:88888\n    .888:88        .:           888:88888:\n    8888888.       ::           88:888888\n    `.::.888.      ::          .88888888\n   .::::::.888.    ::         :::`8888'.:.\n  ::::::::::.888   '         .::::::::::::\n  ::::::::::::.8    '      .:8::::::::::::.\n .::::::::::::::.        .:888:::::::::::::\n :::::::::::::::88:.__..:88888:::::::::::'\n  `'.:::::::::::88888888888.88:::::::::'\n     `':::_:' -- '' -'-' `':_::::'`\n\n"
++'Witaj w Learn Linux! Wybierz interesującą Cię lekcję z panelu po lewej, wpisz help lub credits.'
 	});
 });
 
@@ -246,7 +257,7 @@ function lessonSelect() {
  */
 function checkResults() {
 	var destinationFileSystem;
-	if (currentLesson == 5) {
+	if (currentLesson == testIdx[0]) {
 		destinationFileSystem = {
 			'/': {
 				type: 'dir',
@@ -270,7 +281,7 @@ function checkResults() {
 				modified: Date.now()
 			}
 		};
-	} else if (currentLesson == 9) {
+	} else if (currentLesson == testIdx[1]) {
 		destinationFileSystem = {
 			'/': {
 				type: 'dir',
