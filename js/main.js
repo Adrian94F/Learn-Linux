@@ -90,7 +90,7 @@ var lessons = [
 		"..."],
 	["Test 2", 'Test sprawdzający umiejętności\n--------\n' +
 		'Aby sprawdzić uzyskane umiejętności, spróbuj wykonać następujące zadania.\n' +
-		'...cp, mv i rm...'+
+		'...cp, mv i rm...\n'+
 		'--------\nPo wykonaniu ich wpisz polecenie check, żeby wyświetlić wynik. Powodzenia!\n--------'],
 ];
 var testIdx = [6, 10]; // numery lekcji, które są testami
@@ -248,6 +248,7 @@ function lessonSelect() {
 		resetEnv();
 		fastOut(lessons[number][0] + '\n--------\n' + lessons[number][1]);
 	} else {
+		term.clear();
 		fastOut('Wybrano lekcję ' + number + ': ' + lessons[number][0] + '\n--------\n' + lessons[number][1]);
 	}
 }
