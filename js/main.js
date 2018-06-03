@@ -243,12 +243,11 @@ function lessonSelect() {
 		return;
 	}
 	currentLesson = number;
-	term.echo(' ');
+	term.clear();
 	if (currentLesson == testIdx[0] || currentLesson == testIdx[1]) {
 		resetEnv();
 		fastOut(lessons[number][0] + '\n--------\n' + lessons[number][1]);
 	} else {
-		term.clear();
 		fastOut('Wybrano lekcję ' + number + ': ' + lessons[number][0] + '\n--------\n' + lessons[number][1]);
 	}
 }
@@ -257,9 +256,9 @@ function lessonSelect() {
  * check test results
  */
 function checkResults() {
-	var destinationFileSystem;
+	var idealFileSystem;
 	if (currentLesson == testIdx[0]) {
-		destinationFileSystem = {
+		idealFileSystem = {
 			'/': {
 				type: 'dir',
 				modified: Date.now()
@@ -283,7 +282,7 @@ function checkResults() {
 			}
 		};
 	} else if (currentLesson == testIdx[1]) {
-		destinationFileSystem = {
+		idealFileSystem = {
 			'/': {
 				type: 'dir',
 				modified: Date.now()
@@ -311,7 +310,7 @@ function checkResults() {
 		return;
 	}
 	var userFileSystem = emulator['state']['fileSystem'];
-	var result = compare(userFileSystem, destinationFileSystem) && compare(destinationFileSystem, userFileSystem)
+	var result = compare(idealFileSystem, userFileSystem)
 	if (result) {
 		fastOut('Brawo, udało się, jesteś wielki!');
 	} else {
@@ -320,9 +319,15 @@ function checkResults() {
 	}
 }
 
-function compare(o1, o2) {
-	for (o in o1) {
-		if (!(o1[o] in o2)) {
+function compare(idealFS, userFS) {
+	for (i in idealFS) {
+		var result = false;
+		for (u in userFS) {
+			if (i == u) {
+				result = true;
+			}
+		}
+		if (result == false) {
 			return false;
 		}
 	}
