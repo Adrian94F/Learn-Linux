@@ -64,7 +64,7 @@ var lessons = [
 		],
 	["Test 1", 'Test sprawdzający umiejętności\n--------\n' +
 		'Aby sprawdzić zdobyte umiejętności, spróbuj wykonać następujące zadania zapisane w pliku /README.txt.\n' +
-		'--------\nPo wykonaniu ich wpisz polecenie check, żeby wyświetlić wynik. Powodzenia!\n--------'],
+		'Po wykonaniu ich wpisz polecenie check, żeby wyświetlić wynik. Powodzenia!\n--------'],
 	["Kopiowanie katalogów i plików", "Opis działania cp\n" + 
 		"Pamiętasz, że ludzie dzielą się na dwie grupy?\n" + 
 		"Tych którzy robią kopie zapasowe\n" + 
@@ -73,19 +73,18 @@ var lessons = [
 		"np. cp plik kopia_pliku\n" +
 	 	"Żeby przekopiwać katalog, trzeba jeszcze po cp dodać przełącznik  -r oznaczający recurssive\n" +
 	    "czyli rekurencyjne schodzenie w dół drzewa katalogów\n" +
-	 	"Spróbuj przekopiować dowolny katalog systemu plików w inne miejsce.\n"
-	],
+	 	"Spróbuj przekopiować dowolny katalog systemu plików w inne miejsce.\n"],
 	["Przenoszenie katalogów i plików", "Opis działania mv\n" + 
 		"Zdarza się, w sumie nawet często, że jakiś plik trzeba przenieść w inne miejsce, bez zachowywania kopii.\n" + 
 		"W tym celu uzywa się polecenia move\n" + 
 		"Jego składnia jest bardzo podobna do cp: mv <skad> <dokad>\n" + 
 		"W odróżnieniu od cp nie ma potrzeby stosowania przełącznika -r, ponieważ przeniesienie katalogu implikuje przeniesienie\n" + 
 		"Wszystkich jego wpisów, czyli plików i podkatalogów. Wynika to z organizacji systemu plików, ale to nie pora ani miejsce na takie wywody.\n" + 
-		"-----------------------------------------\n" +
+		"--------\n" +
 	 	"Częstym przypadkiem użycia mv jest zmiana nazwy pliku lub katalogu\n" +
 		"To bardzo proste, wystarczy że wydamy polecenie mv z drugim paramaterem w tym samym katalogu\n" +
 	    "Spróbuj, to proste!\n"+
-		"-----------------------------------\n"],
+		"--------\n"],
 	["Usuwanie katalogów i plików", "Opis działania rm\n" + 
 		"Nadeszła pora na najbardziej niebezpieczne (o ile źle używane) polecenie, czyli remove.\n" + 
 		"Remove, czyli z angielskiego usuń, służy właśnie do usuwania\n" + 
@@ -98,11 +97,10 @@ var lessons = [
 		"Pewnie nie działa? A pamiętasz lekcję o cp? Tak, chodzi o przełącznik -r \n" + 
 		"Spróbuj utworzyć plik, katalog, plik w katalogu a potem je pousuwaj\n" + 
 		"Tutaj na szczęście nie musisz się bać, że zniszyszcz system plików albo usuniesz coś ważnego, bo co lekcję system plików jest odtwarzany\nEnjoy\n" + 
-		"----------------------------------\n"],
+		"--------\n"],
 	["Test 2", 'Test sprawdzający umiejętności\n--------\n' +
-		'Aby sprawdzić uzyskane umiejętności, spróbuj wykonać następujące zadania.\n' +
-		'...cp, mv i rm...\n'+
-		'--------\nPo wykonaniu ich wpisz polecenie check, żeby wyświetlić wynik. Powodzenia!\n--------'],
+		'Aby sprawdzić zdobyte umiejętności, spróbuj wykonać następujące zadania zapisane w pliku /README.txt.\n' +
+		'Po wykonaniu ich wpisz polecenie check, żeby wyświetlić wynik. Powodzenia!\n--------'],
 ];
 var testIdx = [6, 10]; // numery lekcji, które są testami
 var d = 5;
@@ -247,6 +245,14 @@ function prepare () {
 /*
  * lessons
  */
+var testInstructions = ['- usunąć plik journal.txt z katalogu /home/user\n' +
+		'- utworzyć katalog documents w lokalizacji /home/user\n',
+		'cm, mv, rm'
+];
+
+/*
+ * lessons
+ */
 var currentLesson = -1;
 function lessonSelect() {
 	var number = this.id;
@@ -256,8 +262,7 @@ function lessonSelect() {
 	currentLesson = number;
 	term.clear();
 	if (currentLesson == testIdx[0] || currentLesson == testIdx[1]) {
-		resetEnv('- usunąć plik journal.txt z katalogu /home/user\n' +
-		'- utworzyć katalog documents w lokalizacji /home/user\n');
+		resetEnv(currentLesson == testIdx[0] ? testInstructions[0] : testInstructions[1]);
 		fastOut(lessons[number][0] + '\n--------\n' + lessons[number][1]);
 	} else {
 		fastOut('Wybrano lekcję ' + number + ': ' + lessons[number][0] + '\n--------\n' + lessons[number][1]);
@@ -278,8 +283,7 @@ function checkResults() {
 			'/README.txt': {
 				type: 'file',
 				modified: Date.now(),
-				content: '- usunąć plik journal.txt z katalogu /home/user\n' +
-				'- utworzyć katalog documents w lokalizacji /home/user\n'
+				content: testInstructions[0]
 			},
 			'/home': {
 				type: 'dir',
@@ -303,7 +307,7 @@ function checkResults() {
 			'/README.txt': {
 				type: 'file',
 				modified: Date.now(),
-				content: 'empty...'
+				content: testInstructions[1]
 			},
 			'/home': {
 				type: 'dir',
