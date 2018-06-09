@@ -11,8 +11,22 @@ var lessons = [
 	["Wprowadzenie", "\"Czym jest terminal? Dlaczego warto się go uczyć? Nie mogę sobie wysztkiego wyklikać?\"\n" + 
 		"Jeśli zadajesz sobie te pytania, to wiedz, że coś się dzieje, i dziękuj losowi że trafiłes na tę stronę.\n" + 
 		"Terminal to \"komunikator\" na linii system operacyjny - użytkownik. \n" + 
-		"Piszesz do niego co ma zrobić, a on to robi, chyba że nie umie.\n" + 
-		"Zupełnie jak twoja dziewczyna."],
+		"Piszesz do niego co ma zrobić, a on to robi, chyba że nie umie."],
+	["Struktura katalogów", "Opis struktury systemu plików\n" + 
+		"W systemie Linux katalogi i pliki usystematyzowane są w sposób hierarchinczy. Od \"korzenia\" czyli katalogu / po ostatni, najbardziej ukryty, najgłebiej schowany plik.\n" + 
+		"Struktura typowego systemu plików zawiera katalogi:\n" + "/\n" +"├── bin\n" +"├── boot\n" +"├── cdrom\n" +"├── dev\n" +"├── etc\n" +"├── home\n" +"├── initrd.img\n" +"├── lib\n" +"├── lib64\n" +"├── lost+found\n" +"├── media\n" +"├── mnt\n" +"├── opt\n" +"├── proc\n" +"├── root\n" +"├── run\n" +"├── sbin\n" +"├── srv\n" +"├── sys\n" +"├── tmp\n" +"├── usr\n" +"├── var\n" +"└── vmlinuz \n" + "\n" +
+		"Większość z nich to katalogi systemowe, które na tym etapie są dla ciebie jak czarna magia, są, ale wolisz nie wiedzieć po co i dlaczego, i wiesz, że lepiej ich nie ruszać.\n" + 
+		"Na tę chwilę interesują cię katalog /home czyli katalog w którym swoje miejsca pracy mają użytkownicy. Pozostałe są w naszym kursie ukryte. \n" +
+		"W Linuxie możesz adresować na dwa sposoby.\n" + 
+		"Sposób relatywny: wpisujesz miejsce którego szukasz, od miejsca w którym się znajdujesz.\n" +
+		"Czyli, będąc w katalogu /home/user jeśli chcesz pracować z plikiem plik1 używasz jego nazwy.\n" + 
+		"Jeśli znajduje się on w podkatalogu, to piszesz: podkatalog/plik. Oczywiście, podkatalogów może być mnóstwo.\n"+
+		"W systemie istnieją \"specjalne ścieżki\", . i .. .\n" + 
+		". Oznacza bieżący katalog w którym się znajdujesz.\n" +
+		".. Oznacza katalog poziom wyżej. Będąc w /home/user, . oznacza /home/user, a .. oznacza /home. Proste? Mam nadzieję.\n" + 
+		"Drugi sposób adresacji to ścieżki bezwzględne, nie ważne w którym miejscu systemu plików w tym momencie, zawsze oznaczają dokładnie to samo miejsce.\n" +
+		"Ich zapis zaczyna się od / - tak, dobrze pamiętasz, to symbol root, czyli korzenia systemu plików.\n" +
+		"Jak już pewnie się domyślasz, ścieżki budujesz po kolei, podążając za hierarchią, np: /home/user/katalog/plik."],
 	["Przeszukiwanie katalogów", "Znając podstawy obsługi komputera wiesz pewnie, że pliki zapisane są w różnych katalogach.\n" + 
 		"Terminal pozwala na poruszanie się wewnątrz katalogów, przechodzenie do podkatalogów i katalogów nadrzędnych.\n" + 
 		"Głównym katalogiem jest \"\\\". Pod nim znajdują się wszystkie inne.\n" + 
@@ -31,17 +45,7 @@ var lessons = [
 		"        -a - wyświetlenie plików ukrytych. Plik jest ukryty, kiedy na początku nazwy zawiera kropkę (np. \".plik\").\n" + 
 		" - pwd - wyświetla aktualną ścieżkę - lokalizację, w której się znajdujesz.\n--------\n" + 
 		"Wypróbuj poznane polecenia, wyświetlając zawartość katalogu głównego i przechodząc do katalogów się w nim znajdujących."],
-    ["Ścieżki", "Opis struktury systemu plików\n" + 
-		"W systemie Linux katalogi i pliki usystematyzowane są w sposób hierarchinczy. Od \"korzenia\" czyli katalogu / po ostatni, najbardziej ukryty, najgłebiej schowany plik\n" + 
-		"Struktura typowego systemu plików zawiera katalogi:\n" + "/\n" +"├── bin\n" +"├── boot\n" +"├── cdrom\n" +"├── dev\n" +"├── etc\n" +"├── home\n" +"├── initrd.img\n" +"├── lib\n" +"├── lib64\n" +"├── lost+found\n" +"├── media\n" +"├── mnt\n" +"├── opt\n" +"├── proc\n" +"├── root\n" +"├── run\n" +"├── sbin\n" +"├── srv\n" +"├── sys\n" +"├── tmp\n" +"├── usr\n" +"├── var\n" +"└── vmlinuz \n" + "\n" +
-		"Większość z nich to katalogi systemowe, które na tym etapie są dla ciebie jak czarna magia, są, ale wolisz nie wiedzieć po co i dlaczego, i wiesz, że lepiej ich nie ruszać. Na tę chwilę interesują cię katalog /home czyli katalog w którym swoje miejsca pracy mają użytkownicy. Pozostałe są w naszym kursie ukryte. \n" +
-		"W Linuxie możesz adresować na dwa sposoby:\n" + 
-		"Sposób relatywny: wpisujesz miejsce którego szukasz, od miejsca w którym się znajdujesz.\n" +
-		"Czyli, będąc w katalogu /home/user jeśli chcesz pracować z plikiem plik1 używasz jego nazwy\n" + 
-		"Jeśli znajduje się on w podkatalogu, to piszesz: podkatalog/plik. Oczywiście, poziomów może być mnóstwo\n"+
-		"W systemie istnieją \"specjalne ścieżki\", . i .. . . Oznacza bieżący katalog w którym się znajdujesz. .. Oznaczają katalog o poziom wyżej, czyli jeśli jesteś w /home/user, to . oznacza /home/user, a .. oznacza /home. Proste? Mam nadzieję\n" + 
-		"Drugi sposób adresacji to ścieżki bezwzględne, nie ważne w którym miejscu systemu plików w tym momencie, zawsze oznaczają dokładnie to samo miejsce. Ich zapis zaczyna się od / - tak, dobrze pamiętasz, to symbol root, czyli korzenia systemu plików. Jak już pewnie się domyślasz, ściezki budujesz po kolei, podążając za hierarchią, np: /home/user/katalog/plik"],
-	["Tworzenie katalogów", "Opis działania mkdir\n" + 
+    ["Tworzenie katalogów", "Opis działania mkdir\n" + 
 		"Polecenie mkdir służy do tworzenia katalogów. \n" +
         "Jego podstawowa składnia to: mkdir nazwa_katalogu \n" +
         "Zamiast nazwy, możesz podać ścieżkę, np katalog/katalog2/katalog3\n" +
@@ -52,12 +56,11 @@ var lessons = [
 		"Mam nadzieję, że tym razem Ci się uda!\n"],
 	["Wyświetlanie plików", "Opis działania cat\n" + 
 		"Polecenie cat, od angielskiego conCATenate służy zasadniczo do łączenia, ale najczęście używa się go do wyświetlania zawartości plków.\n" + 
-		"Składnia wygląda następująco:" + 
+		"Składnia wygląda następująco: " + 
 		"cat plik1 plik2 plik3\n" + 
-		"Plików może być dowolna liczba, ich zawartość zostanie domyślnie wyświetlna na standardowym wyjściu czyli w konsoli.\n" + 
+		"Plików może być dowolna liczba, ich zawartość zostanie domyślnie wyświetlona na standardowym wyjściu czyli w konsoli.\n" + 
 		"Sprawdź, co zawiera w sobie plik journal.txt z katalogu domowego użytknownia user\n" + 
-	 	"Następnie spróbuj odczytać zawartość plików /home/user/journal.txt i README.txt używając tylko jednego wywołania cat\n"
-		],
+	 	"Następnie spróbuj odczytać zawartość plików /home/user/journal.txt i README.txt używając tylko jednego wywołania cat\n"],
 	["Tworzenie plików", "Opis działania touch\n" + 
 		"Następnym poleceniem jakie poznasz jest polecenie touch. Służy ono do \"dotykania\" pliku. W prawdziwym systemie modifikuje ono datę modyfikacji pliku, a jeśli taki plik nie istnieje tworzy nowy o takiej nazwie. Spróbuj utworzyć plik plik1.txt w miejscu w którym się znajdujesz. Potem sprawdź czy plik się utworzył za pomocą ls. Następnie utwórz plik /home/user/katalog69/plik96 i również zweryfikuj jego istnienie za pomocą ls" + 
 		"\n"
@@ -246,8 +249,11 @@ function prepare () {
  * lessons
  */
 var testInstructions = ['- usunąć plik journal.txt z katalogu /home/user\n' +
-		'- utworzyć katalog documents w lokalizacji /home/user\n',
-		'cm, mv, rm'
+		'- utworzyć katalog documents w lokalizacji /home/user\n' +
+		'- utworzyć w nim plik notes.txt',
+		'- skopiować plik README.txt do katalogu /home/user\n' +
+		'- zmienić nazwę powyższego pliku w katalogu użytkownika na instrukcja.txt\n' +
+		'- usunąć plik README.txt z katalogu głównego'
 ];
 
 /*
@@ -265,7 +271,7 @@ function lessonSelect() {
 		resetEnv(currentLesson == testIdx[0] ? testInstructions[0] : testInstructions[1]);
 		fastOut(lessons[number][0] + '\n--------\n' + lessons[number][1]);
 	} else {
-		fastOut('Wybrano lekcję ' + number + ': ' + lessons[number][0] + '\n--------\n' + lessons[number][1]);
+		fastOut('Lekcja ' + number + ': ' + lessons[number][0] + '\n--------\n' + lessons[number][1]);
 	}
 }
 
@@ -296,6 +302,11 @@ function checkResults() {
 			'/home/user/documents': {
 				type: 'dir',
 				modified: Date.now()
+			},
+			'/home/user/documents/notes.txt': {
+				type: 'file',
+				modified: Date.now(),
+				content: ''
 			}
 		};
 	} else if (currentLesson == testIdx[1]) {
@@ -304,7 +315,7 @@ function checkResults() {
 				type: 'dir',
 				modified: Date.now()
 			},
-			'/README.txt': {
+			'/home/user/instrukcja.txt': {
 				type: 'file',
 				modified: Date.now(),
 				content: testInstructions[1]
@@ -327,7 +338,7 @@ function checkResults() {
 		return;
 	}
 	var userFileSystem = emulator['state']['fileSystem'];
-	var result = compare(idealFileSystem, userFileSystem)
+	var result = compare(idealFileSystem, userFileSystem) && compare(userFileSystem, idealFileSystem)
 	if (result) {
 		fastOut('Brawo, udało się, jesteś wielki!');
 	} else {
