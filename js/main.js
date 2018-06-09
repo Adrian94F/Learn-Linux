@@ -54,40 +54,51 @@ var lessons = [
 		"Polecenie cat, od angielskiego conCATenate służy zasadniczo do łączenia, ale najczęście używa się go do wyświetlania zawartości plków.\n" + 
 		"Składnia wygląda następująco:" + 
 		"cat plik1 plik2 plik3\n" + 
-		"Plików może być dowolna liczba, ich zawartość zostanie domyślnie wyświetlna na standardowym wyjściu czyli w konsoli." + 
-		"Sprawdź, co zawiera w sobie plik journal.txt z katalogu domowego użytknownia user\n" 
+		"Plików może być dowolna liczba, ich zawartość zostanie domyślnie wyświetlna na standardowym wyjściu czyli w konsoli.\n" + 
+		"Sprawdź, co zawiera w sobie plik journal.txt z katalogu domowego użytknownia user\n" + 
+	 	"Następnie spróbuj odczytać zawartość plików /home/user/journal.txt i README.txt używając tylko jednego wywołania cat\n"
 		],
 	["Tworzenie plików", "Opis działania touch\n" + 
 		"Następnym poleceniem jakie poznasz jest polecenie touch. Służy ono do \"dotykania\" pliku. W prawdziwym systemie modifikuje ono datę modyfikacji pliku, a jeśli taki plik nie istnieje tworzy nowy o takiej nazwie. Spróbuj utworzyć plik plik1.txt w miejscu w którym się znajdujesz. Potem sprawdź czy plik się utworzył za pomocą ls. Następnie utwórz plik /home/user/katalog69/plik96 i również zweryfikuj jego istnienie za pomocą ls" + 
 		"\n"
 		],
 	["Test 1", 'Test sprawdzający umiejętności\n--------\n' +
-		'Aby sprawdzić uzyskane umiejętności, spróbuj wykonać następujące zadania.\n' +
-		' - usunąć plik journal.txt z katalogu /home/user\n' +
-		' - utworzyć katalog documents w lokalizacji /home/user\n' +
-		' - zmienić nazwę README.txt na my-readme.txt\n' +
-		' - wyświetlić zawartość  my-readme.txt\n' +
+		'Aby sprawdzić zdobyte umiejętności, spróbuj wykonać następujące zadania zapisane w pliku /README.txt.\n' +
 		'--------\nPo wykonaniu ich wpisz polecenie check, żeby wyświetlić wynik. Powodzenia!\n--------'],
 	["Kopiowanie katalogów i plików", "Opis działania cp\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"..."],
+		"Pamiętasz, że ludzie dzielą się na dwie grupy?\n" + 
+		"Tych którzy robią kopie zapasowe\n" + 
+		"I tych którzy dopiero zaczną je robić\n" + 
+		"Do kopiowania katalogów i plików służy polecenie cp <skąd> <dokąd>\n" + 
+		"np. cp plik kopia_pliku\n" +
+	 	"Żeby przekopiwać katalog, trzeba jeszcze po cp dodać przełącznik  -r oznaczający recurssive\n" +
+	    "czyli rekurencyjne schodzenie w dół drzewa katalogów\n" +
+	 	"Spróbuj przekopiować dowolny katalog systemu plików w inne miejsce.\n"
+	],
 	["Przenoszenie katalogów i plików", "Opis działania mv\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"..."],
+		"Zdarza się, w sumie nawet często, że jakiś plik trzeba przenieść w inne miejsce, bez zachowywania kopii.\n" + 
+		"W tym celu uzywa się polecenia move\n" + 
+		"Jego składnia jest bardzo podobna do cp: mv <skad> <dokad>\n" + 
+		"W odróżnieniu od cp nie ma potrzeby stosowania przełącznika -r, ponieważ przeniesienie katalogu implikuje przeniesienie\n" + 
+		"Wszystkich jego wpisów, czyli plików i podkatalogów. Wynika to z organizacji systemu plików, ale to nie pora ani miejsce na takie wywody.\n" + 
+		"-----------------------------------------\n" +
+	 	"Częstym przypadkiem użycia mv jest zmiana nazwy pliku lub katalogu\n" +
+		"To bardzo proste, wystarczy że wydamy polecenie mv z drugim paramaterem w tym samym katalogu\n" +
+	    "Spróbuj, to proste!\n"+
+		"-----------------------------------\n"],
 	["Usuwanie katalogów i plików", "Opis działania rm\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"...\n" + 
-		"..."],
+		"Nadeszła pora na najbardziej niebezpieczne (o ile źle używane) polecenie, czyli remove.\n" + 
+		"Remove, czyli z angielskiego usuń, służy właśnie do usuwania\n" + 
+		"Ale, UWAGA!!!, ACHTUNG!!!, WARNING!!!\n" + 
+		"W terminalu nie ma kosza, wszystkie usunięte pliki lądują prosto w tzw. /dev/null'u czyli w tajemniczej, czarnej dziurze\n" + 
+		"Legenda głosi, że w ten sposób można się pozbyć nawet ciała, ale do tej pory próbowano tylko z ciałem funkcji (sorry za inside joke)\n" + 
+		"W sumie, nie wiem jak włożyć ciało do komputera, więc nie sprawdzę, żeby Ci pokazać.\n" + 
+		"Dobra, do rzeczy, składnia: rm <plik> lub rm <lista plików rozdzielona spacją>\n" + 
+		"Tak działa z plikami, spróbuj z katalogiem ;) \n" + 
+		"Pewnie nie działa? A pamiętasz lekcję o cp? Tak, chodzi o przełącznik -r \n" + 
+		"Spróbuj utworzyć plik, katalog, plik w katalogu a potem je pousuwaj\n" + 
+		"Tutaj na szczęście nie musisz się bać, że zniszyszcz system plików albo usuniesz coś ważnego, bo co lekcję system plików jest odtwarzany\nEnjoy\n" + 
+		"----------------------------------\n"],
 	["Test 2", 'Test sprawdzający umiejętności\n--------\n' +
 		'Aby sprawdzić uzyskane umiejętności, spróbuj wykonać następujące zadania.\n' +
 		'...cp, mv i rm...\n'+
@@ -245,7 +256,8 @@ function lessonSelect() {
 	currentLesson = number;
 	term.clear();
 	if (currentLesson == testIdx[0] || currentLesson == testIdx[1]) {
-		resetEnv();
+		resetEnv('- usunąć plik journal.txt z katalogu /home/user\n' +
+		'- utworzyć katalog documents w lokalizacji /home/user\n');
 		fastOut(lessons[number][0] + '\n--------\n' + lessons[number][1]);
 	} else {
 		fastOut('Wybrano lekcję ' + number + ': ' + lessons[number][0] + '\n--------\n' + lessons[number][1]);
@@ -263,10 +275,11 @@ function checkResults() {
 				type: 'dir',
 				modified: Date.now()
 			},
-			'/my-readme.txt': {
+			'/README.txt': {
 				type: 'file',
 				modified: Date.now(),
-				content: 'empty...'
+				content: '- usunąć plik journal.txt z katalogu /home/user\n' +
+				'- utworzyć katalog documents w lokalizacji /home/user\n'
 			},
 			'/home': {
 				type: 'dir',
