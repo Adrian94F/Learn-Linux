@@ -3,7 +3,7 @@
  */
 var term;
 var help = [
-	"Dumny ty jesteś z siebie? Czy masz ty w ogóle jakiś rozum i godność człowieka?\nZastanaów się nad tym, co ześ zrobił, przemyśl swoje zachowanie.",
+	"Dumny ty jesteś z siebie? Czy masz ty w ogóle jakiś rozum i godność człowieka?\nZastanaów się nad tym, co żeś zrobił, przemyśl swoje zachowanie.",
 	"Potrzebujesz pomocy? Zgubiłeś się? Wybierz po prostu którąś z lekcji w panelu po lewej stronie. Powodzenia!",
 	"Copyright © 2018 Adrian Frydmański, Krzysztof Cabała. Wszelkie i niewszelkie prawa zastrzeżone.\nWykorzystano następujące projekty:\n* JQuery Terminal - https://terminal.jcubic.pl\n* Bash-Emulator - https://trybash.github.io/bash-emulator/"
 ]
