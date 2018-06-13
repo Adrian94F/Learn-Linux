@@ -3,7 +3,6 @@
  */
 var term;
 var help = [
-	"Dumny ty jesteś z siebie? Czy masz ty w ogóle jakiś rozum i godność człowieka?\nZastanaów się nad tym, co żeś zrobił, przemyśl swoje zachowanie.",
 	"Potrzebujesz pomocy? Zgubiłeś się? Wybierz po prostu którąś z lekcji w panelu po lewej stronie. Powodzenia!",
 	"Copyright © 2018 Adrian Frydmański, Krzysztof Cabała. Wszelkie i niewszelkie prawa zastrzeżone.\nWykorzystano następujące projekty:\n* JQuery Terminal - https://terminal.jcubic.pl\n* Bash-Emulator - https://trybash.github.io/bash-emulator/"
 ]
@@ -212,16 +211,14 @@ jQuery(document).ready(function($) {
 	var id = 1;
 	term = $('#terminal').terminal(function(command, term) {
 		if (!command.replace(/\s/g, '').length) {
-		} else if (command == 'dupa') {
-			fastOut(help[0]);
 		} else if (command == 'help') {
-			fastOut(help[1]);
+			fastOut(help[0]);
 		} else if (command == 'credits') {
-			fastOut(help[2]);
+			fastOut(help[1]);
 		} else if (command == 'check') {
 			checkResults();
 		} else {
-			//do something with command, you dumb fuck
+			//do something with command
 			emulator.run(command).then(log, error);
 		}
 	}, {
